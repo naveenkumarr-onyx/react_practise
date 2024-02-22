@@ -5,7 +5,7 @@ import State from "./hooks/useState/State";
 function App() {
   return (
     <div>
-      {/* <Effect /> */}
+      <Effect />
       <State />
     </div>
   );

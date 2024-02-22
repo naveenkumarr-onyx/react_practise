@@ -8,7 +8,6 @@ const Effect = () => {
       .get("https://jsonplaceholder.typicode.com/comments")
       .then((response) => {
         setData(response.data[0].body);
-        console.log(response.data);
         console.log("API is called");
       });
   }, [count]);
