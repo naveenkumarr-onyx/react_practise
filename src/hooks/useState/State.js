@@ -13,6 +13,15 @@ const State = () => {
   function eventChanging(e) {
     isChangingInput(e.target.value);
   }
+  // Object State
+  const [state, setState] = useState({ age: 0, siblingsNum: 0 });
+  function handleChange(val) {
+    setState({
+      ...state,
+      [val]: state[val] + 1,
+    });
+  }
+  const { age, siblingsNum } = state;
   return (
     <div className="flex justify-center gap-[10px] items-center flex-col">
       <button
@@ -32,6 +41,22 @@ const State = () => {
         onChange={(e) => eventChanging(e)}
         className=" border-[2px] border-red-600 p-[10px]"
       />
+
+      {/* Age */}
+      <p>Today I am {age} Years of Age</p>
+      <p>I have {siblingsNum} siblings</p>
+      <button
+        className="font-bold border-[2px] border-red-600 p-[10px]"
+        onClick={handleChange.bind(null, "age")}
+      >
+        get Older
+      </button>
+      <button
+        className="font-bold border-[2px] border-red-600 p-[10px]"
+        onClick={handleChange.bind(null, "siblingsNum")}
+      >
+        more Older
+      </button>
     </div>
   );
 };
