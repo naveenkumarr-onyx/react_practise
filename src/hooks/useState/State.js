@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { AiFillApple, AiFillAmazonCircle } from "react-icons/ai";
-import Effect from "../useEffect/Effect";
+import { Effect } from "../useEffect/Effect";
 
 const State = () => {
   // using null and not null

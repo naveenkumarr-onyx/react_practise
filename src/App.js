@@ -1,14 +1,12 @@
 import "./App.css";
-import Effect from "./hooks/useEffect/Effect";
+import Context from "./hooks/useContext/Context";
 import State from "./hooks/useState/State";
-
 function App() {
   return (
     <div>
-      <Effect />
       <State />
+      <Context />
     </div>
   );
 }
-
 export default App;

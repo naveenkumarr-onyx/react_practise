@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-const Effect = () => {
+
+export const Effect = () => {
   const [count, setcount] = useState(0);
   const [data, setData] = useState("");
   const [age, setAge] = useState(0);
@@ -19,17 +20,24 @@ const Effect = () => {
 
   // cleanup effects
   useEffect(() => {
-    const clicked = () => console.log("Clicked");
-    window.addEventListener("click", clicked);
+    // const clicked = () => console.log("Clicked");
+    // window.addEventListener("click", clicked);
 
     return function testing() {
-      window.removeEventListener("click", clicked);
+      // window.removeEventListener("click", clicked);
     };
   });
 
   useEffect(() => {
-    console.log("Empty useEffect");
-  });
+    setEffectLogs((prevStateEffect) => [...prevStateEffect, "Excuted....."]);
+    // console.log("Empty useEffect");
+  }, []);
+  const [randomNumber, setRandomNumber] = useState(0);
+  const [effectLogs, setEffectLogs] = useState([]);
+  console.log(effectLogs);
+  function handleClickRandom() {
+    setRandomNumber(Math.random());
+  }
   return (
     <div className=" flex gap-[50px] items-center">
       {/* <h1 className=" font-bold">{count}</h1>
@@ -41,11 +49,50 @@ const Effect = () => {
       >
         update Title!
       </button> */}
-      <p className=" cursor-pointer">
-        When you click the window you'll find a message logged to the console
-      </p>
+      <div className=" flex flex-col gap-[10px] items-center">
+        <p className=" cursor-pointer">{randomNumber}</p>
+        <button
+          onClick={handleClickRandom}
+          className="font-bold border-[2px] border-red-600 p-[10px]"
+        >
+          update Random Number
+        </button>
+        <h1>{effectLogs}</h1>
+        {effectLogs.map((value, index) => (
+          <div key={index}>{"😎".repeat(index) + value}</div>
+        ))}
+      </div>
+      {/* <ArrayDepMount /> */}
     </div>
   );
 };
 
-export default Effect;
+export const ArrayDepMount = () => {
+  const [randomNumber, setRandomNumber] = useState(0);
+  const [effectLogs, setEffectLogs] = useState([]);
+
+  useEffect(() => {
+    setEffectLogs((prevEffectLogs) => [
+      ...prevEffectLogs,
+      "effect fn has been invoked",
+    ]);
+  }, []);
+
+  return (
+    <div>
+      <h1>{randomNumber}</h1>
+      <button
+        onClick={() => {
+          setRandomNumber(Math.random());
+        }}
+      >
+        Generate random number!
+      </button>
+      <div>
+        {effectLogs.map((effect, index) => (
+          <div key={index}>{"🍔".repeat(index) + effect}</div>
+        ))}
+      </div>
+    </div>
+  );
+};
