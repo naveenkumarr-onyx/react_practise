@@ -31,28 +31,30 @@ const State = () => {
     <div className="flex justify-center gap-[10px] items-center flex-col">
       {toogle ? (
         <div>
-          <h1>Count:{count}</h1>
-          <button
-            onClick={handleChange}
-            className="font-bold border-[2px] border-red-600 p-[10px]"
-          >
-            increase Count
-          </button>
-          <button
-            onClick={changingState}
-            className="font-bold border-[2px] border-red-600 p-[10px]"
-          >
-            click me!
-          </button>
-          {/* {changing ? <AiFillApple /> : <AiFillAmazonCircle />} */}
-          <h1>{changingInput}</h1>
-          <input
-            type="text"
-            onChange={(e) => eventChanging(e)}
-            className=" border-[2px] border-red-600 p-[10px]"
-          />
           <div onClick={changingToogle}>
             <FaArrowRight />
+          </div>
+          <div>
+            <h1>Count:{count}</h1>
+            <button
+              onClick={handleChange}
+              className="font-bold border-[2px] border-red-600 p-[10px]"
+            >
+              increase Count
+            </button>
+            <button
+              onClick={changingState}
+              className="font-bold border-[2px] border-red-600 p-[10px]"
+            >
+              click me!
+            </button>
+            {/* {changing ? <AiFillApple /> : <AiFillAmazonCircle />} */}
+            <h1>{changingInput}</h1>
+            <input
+              type="text"
+              onChange={(e) => eventChanging(e)}
+              className=" border-[2px] border-red-600 p-[10px]"
+            />
           </div>
         </div>
       ) : (
