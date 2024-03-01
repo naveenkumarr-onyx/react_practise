@@ -6,10 +6,14 @@ const Custom = () => {
     function handleResize() {
       setWidth(window.innerWidth);
     }
+    // if (window.innerWidth <= 700) {
+    //   handleResize();
+    // } else {
+    //   return;
+    // }
 
     useEffect(() => {
       window.addEventListener("resize", handleResize);
-      // console.log("calling resize event");
       return () => {
         window.removeEventListener("resize", handleResize);
       };
@@ -18,14 +22,14 @@ const Custom = () => {
   }
 
   // callback
-  function calling(callback) {
-    console.log("calling callback");
-    callback();
-  }
-  function hello() {
-    console.log("hello");
-  }
-  calling(hello);
+  // function calling(callback) {
+  //   console.log("calling callback");
+  //   callback();
+  // }
+  // function hello() {
+  //   console.log("hello");
+  // }
+  // calling(hello);
   const width = useWindowWidth();
   return (
     <div>
