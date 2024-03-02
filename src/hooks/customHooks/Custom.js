@@ -20,7 +20,10 @@ const Custom = () => {
     }, []);
     return width;
   }
-
+  const width = useWindowWidth();
+  let arr = [];
+  arr.push(width);
+  console.log(arr.length - 1);
   // callback
   // function calling(callback) {
   //   console.log("calling callback");
@@ -30,7 +33,7 @@ const Custom = () => {
   //   console.log("hello");
   // }
   // calling(hello);
-  const width = useWindowWidth();
+
   return (
     <div>
       <h1>{`The window width is : ${width}`}</h1>
