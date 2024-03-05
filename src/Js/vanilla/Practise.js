@@ -9,13 +9,24 @@ const Practise = () => {
     // console.log(numbers);
     // numbers += 2;
   }
-  console.log(result);
-  console.log(counter);
+  // console.log(result);
+  // console.log(counter);
 
-  for (let i = 0; i < 10; i++) {
-    console.log(i);
+  for (let counter = 20; counter > 20; counter = counter + 1) {
+    // if (counter % 7 === 0) {
+    // console.log(counter);
+    //   break;
+    // }
   }
-
+  function egg(price) {
+    return "The price of the egg is " + price;
+  }
+  function chicken() {
+    var today = new Date();
+    var dat = today.getDay();
+    return console.log(`Today date: ${dat} ${egg(28)}`);
+  }
+  chicken();
   return <div></div>;
 };
 
