@@ -21,9 +21,9 @@ const Custom = () => {
     return width;
   }
   const width = useWindowWidth();
-  let arr = [];
-  arr.push(width);
-  console.log(arr.length - 1);
+  // let arr = [];
+  // arr.push(width);
+  // console.log(arr.length - 1);
   // callback
   // function calling(callback) {
   //   console.log("calling callback");
