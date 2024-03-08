@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "../App.css";
+import InputCompo from "./InputCompo";
 export const ProcessBar = () => {
   return (
     <div className=" bg-red-400 flex h-[200px] justify-center items-center">
-      <div className=" flex flex-col gap-2">
+      {/* <div className=" flex flex-col gap-2">
         <div className=" flex items-center">
           <div className=" bg-green-300 rounded-full w-[20px] h-[20px] flex justify-center items-center">
             1
@@ -11,7 +12,9 @@ export const ProcessBar = () => {
           <div className=" bg-green-300 h-[3px] w-[100px]"></div>
         </div>
         <h1 className="text-green-400">Payments</h1>
-      </div>
+      </div> */}
+
+      {/* <InputCompo newVal={State} /> */}
     </div>
   );
 };
