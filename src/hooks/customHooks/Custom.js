@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const Custom = () => {
+export const Custom = () => {
   function useWindowWidth() {
     const [width, setWidth] = useState(window.innerHeight);
     function handleResize() {
@@ -41,4 +41,7 @@ const Custom = () => {
   );
 };
 
-export default Custom;
+export const useToggle = () => {
+  // const []
+  return;
+};

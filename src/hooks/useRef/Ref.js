@@ -1,15 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
+import StopWatch from "./StopWatch";
 
 const Ref = () => {
   const [inputValue, setInputValue] = useState("");
-  const count = useRef(0);
   let [count2, setCount2] = useState(0);
+  let initial = 0;
+  const ref = useRef(initial);
+  console.log(ref.current);
+  useEffect(() => {}, [count2]);
 
-  useEffect(() => {
-    console.log(count2);
-    count.current += +1; //ref
-    setCount2(count2++);
-  }, [count2]);
+  function handleClick() {
+    ref.current = ref.current + 1;
+    console.log(ref.current);
+    setCount2(ref.current);
+  }
   return (
     <div>
       <input
@@ -18,8 +22,9 @@ const Ref = () => {
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
       />
-      <h1 id="count2">DOM count:{count2}</h1>
-      <h1>Render count:{count.current}</h1>
+      <h1>{count2}</h1>
+      <button onClick={handleClick}>clicking!!!</button>
+      <StopWatch />
     </div>
   );
 };

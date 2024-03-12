@@ -1,21 +1,21 @@
 import "./App.css";
 import Async from "./Js/async_await/async";
 import Practise from "./Js/vanilla/Practise";
-import Custom from "./hooks/customHooks/Custom";
+import { Custom } from "./hooks/customHooks/Custom";
 import Context from "./hooks/useContext/Context";
 import Reducer from "./hooks/useReducer/Reducer";
+import Ref from "./hooks/useRef/Ref";
 import State from "./hooks/useState/State";
 import InputCompo from "./processBar/InputCompo";
 import { Amazon, Apps, ProcessBar } from "./processBar/ProcessBar";
 function App() {
   function handler() {}
   return (
-    <div>
+    <div className=" h-screen w-screen justify-center flex items-center flex-col">
       {/* <State /> */}
       <Custom />
       <Practise />
-      <ProcessBar newVaL={handler} />
-      <InputCompo />
+      <Ref />
     </div>
   );
 }
