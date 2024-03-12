@@ -9,7 +9,6 @@ import State from "./hooks/useState/State";
 import InputCompo from "./processBar/InputCompo";
 import { Amazon, Apps, ProcessBar } from "./processBar/ProcessBar";
 function App() {
-  function handler() {}
   return (
     <div className=" h-screen w-screen justify-center flex items-center flex-col">
       {/* <State /> */}
