@@ -1,11 +1,12 @@
 import React, { useRef } from "react";
 import { useState } from "react";
+import Ref from "./Ref";
 
-const StopWatch = () => {
+export const StopWatch = () => {
   const [startCount, setStartCount] = useState(null);
   const [now, setNow] = useState(null);
   const intervalRef = useRef(null);
-
+  const refinitial = useRef(null);
   function handleStart() {
     setStartCount(Date.now());
     setNow(Date.now());
@@ -32,5 +33,3 @@ const StopWatch = () => {
     </div>
   );
 };
-
-export default StopWatch;
