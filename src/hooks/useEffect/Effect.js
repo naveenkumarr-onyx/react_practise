@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Index from "./Index";
+import ModalDialog from "./ModalDialog";
 
 export const Effect = () => {
   const [count, setcount] = useState(0);
@@ -62,6 +64,7 @@ export const Effect = () => {
           <div key={index}>{"😎".repeat(index) + value}</div>
         ))}
       </div>
+      <Index />
       {/* <ArrayDepMount /> */}
     </div>
   );

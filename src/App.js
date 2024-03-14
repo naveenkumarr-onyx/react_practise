@@ -3,6 +3,9 @@ import Async from "./Js/async_await/async";
 import Practise from "./Js/vanilla/Practise";
 import { Custom } from "./hooks/customHooks/Custom";
 import Context from "./hooks/useContext/Context";
+import { Effect } from "./hooks/useEffect/Effect";
+import ModalDialog from "./hooks/useEffect/ModalDialog";
+import Index from "./hooks/useEffect/Index";
 import Reducer from "./hooks/useReducer/Reducer";
 import { Ref } from "./hooks/useRef/Ref";
 import State from "./hooks/useState/State";
@@ -12,9 +15,11 @@ function App() {
   return (
     <div className=" h-screen w-screen justify-center flex items-center flex-col">
       {/* <State /> */}
-      <Custom />
+      <Effect />
+      {/* <ModalDialog /> */}
+      {/* <Custom />
       <Practise />
-      <Ref />
+      <Ref /> */}
     </div>
   );
 }

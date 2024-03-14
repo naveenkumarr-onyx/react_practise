@@ -1,4 +1,4 @@
-.app {
+/* .app {
   text-align: center;
   margin: 50px;
 }
@@ -19,13 +19,13 @@
 .step.active {
   background-color: #4caf50;
   color: white;
-}
+} */
 
-button {
-  padding: 10px;
+/* button {
+  padding: 5px;
   font-size: 16px;
   cursor: pointer;
-  background-color: #4caf50;
+ 
   color: white;
   border: none;
   border-radius: 5px;
@@ -34,4 +34,10 @@ button {
 button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+} */
+button {
+  padding: 10px;
+  border: 10px;
+  border-color: red;
+  background-color: #4caf50;
 }
