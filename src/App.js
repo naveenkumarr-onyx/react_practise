@@ -4,7 +4,7 @@ import Practise from "./Js/vanilla/Practise";
 import { Custom } from "./hooks/customHooks/Custom";
 import Context from "./hooks/useContext/Context";
 import Reducer from "./hooks/useReducer/Reducer";
-import Ref from "./hooks/useRef/Ref";
+import { Ref } from "./hooks/useRef/Ref";
 import State from "./hooks/useState/State";
 import InputCompo from "./processBar/InputCompo";
 import { Amazon, Apps, ProcessBar } from "./processBar/ProcessBar";

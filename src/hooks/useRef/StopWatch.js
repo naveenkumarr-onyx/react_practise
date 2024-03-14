@@ -17,7 +17,6 @@ export const StopWatch = () => {
     }, 10);
     console.log("started");
   }
-
   function handleStop() {
     clearInterval(intervalRef.current);
   }

@@ -16,7 +16,6 @@ export const Ref = () => {
         ref={ref}
       />
       <h1>{count2}</h1>
-
       <VideoPlayer />
     </div>
   );
