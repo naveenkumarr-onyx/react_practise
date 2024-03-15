@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ModalDialog from "./ModalDialog.js";
+import FormValid from "./FormValid.js";
 
 export default function App() {
   const [show, setShow] = useState(false);
@@ -17,6 +18,7 @@ export default function App() {
           Close
         </button>
       </ModalDialog>
+      <FormValid />
     </>
   );
 }
