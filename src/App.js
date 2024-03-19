@@ -12,16 +12,18 @@ import State from "./hooks/useState/State";
 import InputCompo from "./processBar/InputCompo";
 import { Amazon, Apps, ProcessBar } from "./processBar/ProcessBar";
 import SignUpForm from "./Form/SignUpForm";
+import Quote from "./Quote-Generator/Quote";
 function App() {
   return (
-    <div className=" h-screen w-screen justify-center flex items-center flex-col">
+    <div className=" h-screen w-screen justify-center flex items-center gap-[30px] flex-row">
       {/* <State /> */}
       {/* <Effect /> */}
       {/* <ModalDialog /> */}
       {/* <Custom />
       <Practise />
       <Ref /> */}
-      <SignUpForm />
+      {/* <SignUpForm /> */}
+      <Quote />
     </div>
   );
 }
