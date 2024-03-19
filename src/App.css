@@ -35,9 +35,9 @@ button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 } */
-button {
-  padding: 10px;
+/* button {
+  padding: 5px;
   border: 10px;
   border-color: red;
   background-color: #4caf50;
-}
+} */

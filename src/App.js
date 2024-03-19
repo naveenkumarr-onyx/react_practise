@@ -11,15 +11,17 @@ import { Ref } from "./hooks/useRef/Ref";
 import State from "./hooks/useState/State";
 import InputCompo from "./processBar/InputCompo";
 import { Amazon, Apps, ProcessBar } from "./processBar/ProcessBar";
+import SignUpForm from "./Form/SignUpForm";
 function App() {
   return (
     <div className=" h-screen w-screen justify-center flex items-center flex-col">
       {/* <State /> */}
-      <Effect />
+      {/* <Effect /> */}
       {/* <ModalDialog /> */}
       {/* <Custom />
       <Practise />
       <Ref /> */}
+      <SignUpForm />
     </div>
   );
 }

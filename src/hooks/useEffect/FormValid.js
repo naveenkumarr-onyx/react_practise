@@ -5,10 +5,13 @@ const FormValid = () => {
   const [state, changingState] = useState("");
   const [isValid, setValid] = useState(true);
 
-  //   useEffect(() => {
-  //     setValid(state);
-  //   }, [state]);
-
+  var myObject = {
+    key: 1,
+    key2: 2,
+  };
+  myObject["key3"] = 3;
+  myObject["key4"] = 4;
+  console.log(myObject);
   return (
     <div>
       <input
