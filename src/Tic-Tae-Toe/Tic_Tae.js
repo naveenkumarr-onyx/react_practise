@@ -7,24 +7,26 @@ function Square({ value, onSquareClick }) {
 }
 
 let data = ["", "", "", "", "", "", "", "", ""];
+console.log(`before data: ${data}`);
 const Tic_Tae = () => {
   let [count, setCount] = useState(0);
   const [lock, setLock] = useState(false);
   let ref = useRef();
   const toggle = (e, num) => {
     if (lock) {
-      return true;
+      return 0;
     }
     if (count % 2 === 0) {
       e.target.innerHTML = `<h1 className="flex justify-center items-center">X</h1>`;
       data[num] = "x";
-      //   console.log(data[num]);
+      console.log("evennumber" + data[num]);
+      console.log(data);
       setCount(++count);
-      console.log(count);
+      //   console.log(count);
     } else {
       e.target.innerHTML = `<h1>O</h1>`;
       data[num] = "o";
-      //   console.log(num);
+      console.log("oddnumber" + data[num]);
       setCount(++count);
       console.log(count);
     }
@@ -57,8 +59,10 @@ const Tic_Tae = () => {
     if (winner === "x") {
       console.log(winner);
       ref.current.innerHTML = "Congratulations X";
-    } else {
+    } else if (winner === "o") {
       ref.current.innerHTML = "Congratulations O";
+    } else {
+      ref.current.innerHTML = "its a Tie";
     }
     setLock(true);
   };
