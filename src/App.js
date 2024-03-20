@@ -14,6 +14,7 @@ import { Amazon, Apps, ProcessBar } from "./processBar/ProcessBar";
 import SignUpForm from "./Form/SignUpForm";
 import Quote from "./Quote-Generator/Quote";
 import Tic_Tae from "./Tic-Tae-Toe/Tic_Tae";
+import Oops from "./Js/oops/Oops";
 function App() {
   return (
     <div className=" h-screen w-screen justify-center flex items-center gap-[30px] flex-row">
@@ -25,7 +26,8 @@ function App() {
       <Ref /> */}
       {/* <SignUpForm /> */}
       {/* <Quote /> */}
-      <Tic_Tae />
+      <Oops />
+      <Async />
     </div>
   );
 }

@@ -50,6 +50,7 @@ const Async = () => {
     // });
     return () => clearInterval();
   }, [data]);
+
   return <div>{data}</div>;
 };
 

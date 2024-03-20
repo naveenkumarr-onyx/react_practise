@@ -7,30 +7,7 @@ function Square({ value, onSquareClick }) {
 }
 
 let data = ["", "", "", "", "", "", "", "", ""];
-console.log(`before data: ${data}`);
-
 const Tic_Tae = () => {
-  const asyncPro = (x, y) => {
-    return new Promise((resolve, reject) => {
-      if (x < 0 || y < 0) {
-        reject("Negative values");
-      } else {
-        resolve(x * y);
-      }
-    });
-  };
-  asyncPro(-4, 3)
-    .then((result) => {
-      console.log(result);
-    })
-    .catch((error) => {
-      if (error === "Negative values") {
-        alert("Negative values");
-      } else {
-        console.error(error);
-      }
-    });
-
   let [count, setCount] = useState(0);
   const [lock, setLock] = useState(false);
   let ref = useRef();
