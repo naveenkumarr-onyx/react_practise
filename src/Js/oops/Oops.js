@@ -55,7 +55,36 @@ const Oops = () => {
   var me = new Student();
   me.initial("John", 25);
   me.learn("Inheritance");
-  console.log(me);
+  // console.log(me);
+
+  // destructuring
+  const obj = {
+    head: {
+      eyes: "x",
+      mouth: {
+        teeth: "x",
+        tongue: "x",
+      },
+    },
+    body: {
+      shoulders: "x",
+      chest: "x",
+      arms: "x",
+      hands: "x",
+      legs: "x",
+    },
+  };
+  let computer = {
+    processor: {
+      transistor: {
+        silicon: {
+          thickness: "9nm",
+        },
+      },
+    },
+  };
+  const { thickness: thick } = computer.processor.transistor.silicon;
+  console.log(thick);
 
   return <div>Oops</div>;
 };

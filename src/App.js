@@ -15,6 +15,7 @@ import SignUpForm from "./Form/SignUpForm";
 import Quote from "./Quote-Generator/Quote";
 import Tic_Tae from "./Tic-Tae-Toe/Tic_Tae";
 import Oops from "./Js/oops/Oops";
+import BMI from "./BMI/BMI";
 function App() {
   return (
     <div className=" h-screen w-screen justify-center flex items-center gap-[30px] flex-row">
@@ -26,8 +27,9 @@ function App() {
       <Ref /> */}
       {/* <SignUpForm /> */}
       {/* <Quote /> */}
-      <Oops />
-      <Async />
+      <BMI />
+      {/* <Oops />
+      <Async /> */}
     </div>
   );
 }
