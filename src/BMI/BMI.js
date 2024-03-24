@@ -7,8 +7,8 @@ const BMI = () => {
   let [val, setVal] = useState("");
 
   function calculatebmi() {
-    if (weight === 0 || height === 0) {
-      alert("Please enter valid data");
+    if (isNaN(height) || isNaN(weight) || weight === 0 || height === 0) {
+      alert("Please enter valid numeric data");
     } else {
       height = height / 100;
       bmi = weight / (height * height);
@@ -49,6 +49,7 @@ const BMI = () => {
       <h1 className={`${bmi > 25 ? "bg-red-700" : "bg-green-700"} text-center`}>
         {val}
       </h1>
+      <h1>{bmi}</h1>
     </div>
   );
 };
