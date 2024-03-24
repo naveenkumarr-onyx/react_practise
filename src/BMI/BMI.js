@@ -14,16 +14,15 @@ const BMI = () => {
       bmi = weight / (height * height);
       setBmi(bmi.toFixed(3));
       console.log(bmi);
-
-      if (bmi < 18.5) {
-        setVal("Underweight");
-      } else if (bmi >= 18.5 && bmi < 25) {
-        setVal("Normal weight");
-      } else if (bmi >= 25 && bmi < 30) {
-        setVal("Overweight");
-      } else {
-        setVal("Obesity");
-      }
+    }
+    if (bmi < 18.5) {
+      setVal("Underweight");
+    } else if (bmi >= 18.5 && bmi < 25) {
+      setVal("Normal weight");
+    } else if (bmi >= 25 && bmi < 30) {
+      setVal("Overweight");
+    } else {
+      setVal("Obesity");
     }
   }
   return (
