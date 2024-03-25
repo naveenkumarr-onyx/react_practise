@@ -38,7 +38,6 @@ const Quote = () => {
           Refresh
         </button>
         <button>Twitter</button>
-        {/* <YourComponent /> */}
       </div>
     </div>
   );

@@ -23,11 +23,12 @@ function App() {
       {/* <Effect /> */}
       {/* <ModalDialog /> */}
       {/* <Custom />
-      <Practise />
+      
       <Ref /> */}
       {/* <SignUpForm /> */}
       {/* <Quote /> */}
-      <BMI />
+      <Practise />
+      {/* <BMI /> */}
       {/* <Oops />
       <Async /> */}
     </div>

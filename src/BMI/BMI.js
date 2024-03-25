@@ -25,6 +25,7 @@ const BMI = () => {
       setVal("Obesity");
     }
   }
+
   return (
     <div className=" flex flex-col gap-[10px]">
       <input
