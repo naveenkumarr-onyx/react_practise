@@ -6,16 +6,40 @@ const Practise = () => {
     (value, index) => duplicate.indexOf(value) !== index
   );
   // console.log(arr);
-  function house(num) {
-    if (num === 0) {
-      return 0;
-    } else {
-      return 5 * num + 1;
-    }
-  }
-  console.log(house(0));
+  let a = [
+    {
+      content: "hello",
+      heading: "practice",
+    },
+    {
+      content: "hello",
+      heading: "practice",
+    },
+    { content: "hello", heading: "practice" },
+    {
+      content: "hello",
+      heading: "practice",
+    },
+    {
+      content: "hello",
+      heading: "practice",
+    },
+    {
+      content: "hello",
+      heading: "practice",
+    },
+    {
+      content: "hello",
+      heading: "practice",
+    },
+  ];
+  console.log(a);
 
-  return <div></div>;
+  return (
+    <div>
+      <h1>{a.map((value) => value.content)}</h1>
+    </div>
+  );
 };
 
 export default Practise;
