@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const Practise = () => {
   let duplicate = [1, 2, 3, 3, 3, 4, 5, 7];
@@ -33,13 +33,18 @@ const Practise = () => {
       heading: "practice",
     },
   ];
-  console.log(a);
+  // console.log(a);
 
-  return (
-    <div>
-      <h1>{a.map((value) => value.content)}</h1>
-    </div>
-  );
+  var b = "UcUNFYGaFYFYGtNUH";
+  function test(b) {
+    let c = [...b];
+    if (c.includes("c")) {
+      return true;
+    }
+  }
+  console.log(test(b));
+
+  return <div>{/* <h1>{a.map((value) => value.content)}</h1> */}</div>;
 };
 
 export default Practise;
