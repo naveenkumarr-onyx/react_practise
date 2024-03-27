@@ -35,15 +35,22 @@ const Practise = () => {
   ];
   // console.log(a);
 
-  var b = "UcUNFYGaFYFYGtNUH";
+  var b = "bEEFGBuFBRrHgUHlNFYaYr";
   function test(b) {
-    let c = [...b];
-    if (c.includes("c")) {
+    return [...b].filter((c) => c.toLowerCase() === c).join("");
+  }
+  // console.log(test(b));
+
+  function swap(num) {
+    let a = num.toString().split("").reverse().join("");
+    var b = parseInt(a);
+    if (b > num) {
+      return false;
+    } else {
       return true;
     }
   }
-  console.log(test(b));
-
+  console.log(swap(43));
   return <div>{/* <h1>{a.map((value) => value.content)}</h1> */}</div>;
 };
 
