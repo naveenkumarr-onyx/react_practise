@@ -40,17 +40,64 @@ const Practise = () => {
     return [...b].filter((c) => c.toLowerCase() === c).join("");
   }
   // console.log(test(b));
+  useEffect(() => {
+    // let drinks = [
+    //   { name: "lemonade", price: 50 },
+    //   { name: "lime", price: 10 },
+    //   { name: "lime", price: 60 },
+    // ];
+    // drinks.sort((a, b) => {
+    //   return a.price - b.price;
+    // });
+    // console.log(drinks);
+    // Create a method in the Person class which returns how another person's age compares.
+    // Given the instances p1, p2 and p3, which will be initialised with the attributes name and age, return a sentence in the
+    // following format:
+    // p1 = Person("Samuel", 24)
+    // p2 = Person("Joel", 36)
+    // p3 = Person("Lily", 24)
+    // p1.compareAge(p2) ➞ "Joel is older than me."
+    // p2.compareAge(p1) ➞ "Samuel is younger than me."
+    // p1.compareAge(p3) ➞ "Lily is the same age as me."
 
-  function swap(num) {
-    let a = num.toString().split("").reverse().join("");
-    var b = parseInt(a);
-    if (b > num) {
-      return false;
-    } else {
-      return true;
+    class Person {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+
+      compareAge(other) {
+        // if (p1.age === p3.age) {
+        //   console.log(`${p1.name} is Same age as  ${p3.name} `);
+        // }
+        // if (p1.age < p2.age) {
+        //   console.log(`${p1.name} is older than ${p2.name}`);
+        // }
+        if (this.age < other.age) {
+          return `${other.name} is older than ${this.name}`;
+        } else if (this.age > other.age) {
+          return `${other.name} is younger than ${this.name}`;
+        } else {
+          return `${other.name} is same age as ${this.name}`;
+        }
+      }
     }
-  }
-  console.log(swap(43));
+    var p1 = new Person("Samuel", 24);
+    var p2 = new Person("Joel", 36);
+    var p3 = new Person("Lily", 24);
+    if (p2.age > p1.age) {
+      console.log(`${p2.name} is older than ${p1.name}`);
+    } else {
+      console.log(`${p2.name} is not older than ${p1.name}`);
+    }
+
+    // console.log(p1.compareAge(p2));
+    // console.log(p2.compareAge(p3));
+    // console.log(p1.compareAge(p3));
+  }, []);
+
+  // console.log(drinks);
+  // console.log(set(drinks));
   return <div>{/* <h1>{a.map((value) => value.content)}</h1> */}</div>;
 };
 
