@@ -1,6 +1,7 @@
 import "./App.css";
 import Async from "./Js/async_await/async";
 import Practise from "./Js/vanilla/Practise";
+import Palindrome from "./Js/Palindrome/Palindrome";
 import { Custom } from "./hooks/customHooks/Custom";
 import Context from "./hooks/useContext/Context";
 import { Effect } from "./hooks/useEffect/Effect";
@@ -23,11 +24,11 @@ function App() {
       {/* <Effect /> */}
       {/* <ModalDialog /> */}
       {/* <Custom />
-      
       <Ref /> */}
       {/* <SignUpForm /> */}
       {/* <Quote /> */}
-      <Practise />
+      {/* <Practise /> */}
+      <Palindrome />
       {/* <BMI /> */}
       {/* <Oops />
       <Async /> */}

@@ -1,5 +1,3 @@
-console.log("hello");
-
 let object = {
   left: "1",
   right: "2",
