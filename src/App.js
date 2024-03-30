@@ -17,6 +17,7 @@ import Quote from "./Quote-Generator/Quote";
 import Tic_Tae from "./Tic-Tae-Toe/Tic_Tae";
 import Oops from "./Js/oops/Oops";
 import BMI from "./BMI/BMI";
+import { ContextApi } from "./hooks/useContext/ContextApi";
 function App() {
   return (
     <div className=" h-screen w-screen justify-center flex items-center gap-[30px] flex-row">
@@ -28,7 +29,8 @@ function App() {
       {/* <SignUpForm /> */}
       {/* <Quote /> */}
       {/* <Practise /> */}
-      <Palindrome />
+      {/* <Palindrome /> */}
+      <ContextApi />
       {/* <BMI /> */}
       {/* <Oops />
       <Async /> */}
