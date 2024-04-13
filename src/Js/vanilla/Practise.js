@@ -110,7 +110,45 @@ const Practise = () => {
   //   sum(nums, target);
   // }, []);
 
-  return <div>{/* <h1>{a.map((value) => value.content)}</h1> */}</div>;
+  return (
+    <div className="grid grid-flow-row gap-2 grid-cols-2 border border-black p-7">
+      <div className="grid grid-flow-col grid-rows-3  bg-fuchsia-600 gap-7">
+        <div className="">hello</div>
+        <div className="">1</div>
+        <div className="">1</div>
+        <div className="">1</div>
+        <div>1</div>
+      </div>
+      <div className="flex flex-row bg-red-900 gap-4">
+        <div className="">hello</div>
+        <div className="">1</div>
+        <div className="">1</div>
+        <div className="">1</div>
+        <div>1</div>
+      </div>
+      <div className="flex flex-row bg-red-900 gap-4">
+        <div className="">hello</div>
+        <div className="">1</div>
+        <div className="">1</div>
+        <div className="">1</div>
+        <div>1</div>
+      </div>
+      <div className="flex flex-row bg-red-900 gap-4">
+        <div className="">hello</div>
+        <div className="">1</div>
+        <div className="">1</div>
+        <div className="">1</div>
+        <div>1</div>
+      </div>
+      <div className="flex flex-row bg-red-900 gap-4">
+        <div className="">hello</div>
+        <div className="">1</div>
+        <div className="">1</div>
+        <div className="">1</div>
+        <div>1</div>
+      </div>
+    </div>
+  );
 };
 
 export default Practise;

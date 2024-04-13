@@ -18,6 +18,7 @@ import Tic_Tae from "./Tic-Tae-Toe/Tic_Tae";
 import Oops from "./Js/oops/Oops";
 import BMI from "./BMI/BMI";
 import { ContextApi } from "./hooks/useContext/ContextApi";
+import Slider from "./Slider/Slider";
 function App() {
   return (
     <div className=" h-screen w-screen justify-center flex items-center gap-[30px] flex-row">
@@ -28,9 +29,10 @@ function App() {
       <Ref /> */}
       {/* <SignUpForm /> */}
       {/* <Quote /> */}
-      {/* <Practise /> */}
+      <Practise />
       {/* <Palindrome /> */}
-      <ContextApi />
+      {/* <ContextApi /> */}
+      {/* <Slider /> */}
       {/* <BMI /> */}
       {/* <Oops />
       <Async /> */}
