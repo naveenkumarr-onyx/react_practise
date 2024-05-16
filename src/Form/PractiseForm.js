@@ -6,17 +6,33 @@ const PractiseForm = () => {
     email: "",
     description: "",
   });
-  const [data, setData] = useState(formData);
+  const [data] = useState(formData);
   function getVal(e) {
     const { name, value } = e.target;
     setForm({ ...formData, [name]: value });
   }
   function formHandle(e) {
     e.preventDefault();
+    const myObj = JSON.stringify(formData);
+    console.log(myObj);
+    localStorage.setItem("identity", myObj);
     console.log(formData);
   }
+
+  const obj = {
+    name: "naveen",
+    fatherName: "Ramalingam D",
+    country: "India",
+  };
+
+  // const parObj = JSON.parse(myObj);
+  // console.log(parObj);
   return (
-    <form className=" flex flex-col gap-[10px]" onSubmit={formHandle}>
+    <form
+      className=" flex flex-col gap-[10px]"
+      onLoad={() => console.log("hi")}
+      onSubmit={formHandle}
+    >
       <input
         type="text"
         name="name"
@@ -47,8 +63,6 @@ const PractiseForm = () => {
       <p>{data.name}</p>
       <p>{data.email}</p>
       <p>{data.description}</p>
-      {/* <p>{form.email}</p>
-      <p>{form.description}</p> */}
     </form>
   );
 };
