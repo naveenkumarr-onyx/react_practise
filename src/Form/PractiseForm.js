@@ -6,11 +6,11 @@ const PractiseForm = () => {
     email: "",
     description: "",
   });
-  const [data] = useState(formData);
   function getVal(e) {
     const { name, value } = e.target;
     setForm({ ...formData, [name]: value });
   }
+  const [data, setData] = useState(formData);
   function formHandle(e) {
     e.preventDefault();
     const myObj = JSON.stringify(formData);
@@ -25,8 +25,6 @@ const PractiseForm = () => {
     country: "India",
   };
 
-  // const parObj = JSON.parse(myObj);
-  // console.log(parObj);
   return (
     <form
       className=" flex flex-col gap-[10px]"
