@@ -14,11 +14,12 @@ app.get("/", (req, res) => {
 app.post("/submit", (req, res) => {
   const { name, email, description } = req.body;
   console.log(name, email, description);
-  if (res.statusCode === 200) {
-    console.log("Form data received successfully");
-  } else {
-    console.log("Form data got 404");
-  }
+  res.status(200).send("Form data received successfully");
+  //   if (res.statusCode === 200) {
+  //     console.log("Form data received successfully");
+  //   } else {
+  //     console.log("Form data got 404");
+  //   }
 });
 
 app.listen(PORT, () => {
