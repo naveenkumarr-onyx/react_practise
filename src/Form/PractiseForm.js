@@ -7,6 +7,7 @@ const PractiseForm = () => {
     email: "",
     description: "",
   });
+  const [responseData, setResponseData] = useState([]);
 
   function getVal(e) {
     const { name, value } = e.target;
@@ -14,18 +15,18 @@ const PractiseForm = () => {
   }
   async function formHandle(e) {
     e.preventDefault();
-    const myObj = JSON.stringify(formData);
-    console.log(myObj);
-    localStorage.setItem("identity", myObj);
-    console.log(formData);
+    let formDataList = localStorage.getItem("identity");
 
+    // let formDataList = existingData ? JSON.parse(existingData) : [];
+    // formDataList.push(formData);
+    // localStorage.setItem("identity", JSON.stringify(formDataList));
+    // console.log(JSON.stringify(formDataList));
     try {
       const response = await axios.post(
         "http://localhost:8000/submit",
         formData
       );
-      console.log("Response from backend:", response.data);
-      // setForm(formData);
+      return response.data;
     } catch (error) {
       console.error("Error submitting form data:", error);
     }
