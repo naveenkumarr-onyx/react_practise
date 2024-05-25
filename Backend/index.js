@@ -12,9 +12,14 @@ app.get("/", (req, res) => {
 });
 
 app.post("/submit", (req, res) => {
-  const { name, email, description } = req.body;
-  res.status(200).send("Form data received successfully");
+  const { name, email } = req.body;
+  res.status(200).send(req.body);
 });
+
+// app.get("/submit", (req, res) => {
+//   const { name, email, description } = req.body;
+//   res.status(200).send(req.body);
+// });
 
 app.listen(PORT, () => {
   console.log(`Backend Run Successfully ${PORT}`);

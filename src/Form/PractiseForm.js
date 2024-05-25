@@ -5,9 +5,13 @@ const PractiseForm = () => {
   const [formData, setForm] = useState({
     name: "",
     email: "",
-    description: "",
   });
-  const [responseData, setResponseData] = useState([]);
+  const [responseData, setResponseData] = useState("");
+  const [isFormValid, setFormValid] = useState(false);
+
+  useEffect(() => {
+    setFormValid(formData.name !== "" && formData.email !== "");
+  }, [formData]);
 
   function getVal(e) {
     const { name, value } = e.target;
@@ -15,6 +19,7 @@ const PractiseForm = () => {
   }
   async function formHandle(e) {
     e.preventDefault();
+    console.log("click");
     let formDataList = localStorage.getItem("identity");
 
     // let formDataList = existingData ? JSON.parse(existingData) : [];
@@ -26,7 +31,7 @@ const PractiseForm = () => {
         "http://localhost:8000/submit",
         formData
       );
-      return response.data;
+      setResponseData(JSON.stringify(response.data));
     } catch (error) {
       console.error("Error submitting form data:", error);
     }
@@ -42,28 +47,26 @@ const PractiseForm = () => {
         onChange={getVal}
         className="placeholder:pl-1 border-black border-[1px] text-black"
       />
-      <input
-        type="email"
-        name="email"
-        value={formData.email}
-        onChange={getVal}
-        className="placeholder:pl-1 border-black border-[1px]"
-        placeholder="E-mail"
-      />
-      <input
-        type="text"
-        name="description"
-        value={formData.description}
-        onChange={getVal}
-        placeholder="description"
-        className="placeholder:pl-1 border-black border-[1px]"
-      />
-      <button type="submit" className="bg-green-400">
+      {formData.name && (
+        <input
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={getVal}
+          className="placeholder:pl-1 border-black border-[1px]"
+          placeholder="E-mail"
+        />
+      )}
+      <button
+        type="submit"
+        className="bg-green-400 disabled:bg-red-700 disabled:text-white  disabled:cursor-not-allowed"
+        disabled={!isFormValid}
+      >
         submit
       </button>
-      <p>{formData.name}</p>
-      <p>{formData.email}</p>
-      <p>{formData.description}</p>
+      <p> {responseData && JSON.stringify(responseData.name)}</p>
+      {/* <p>{responseData ? responseData.name : "no data found"}</p>
+      <p>{responseData && responseData.email}</p> */}
     </form>
   );
 };
