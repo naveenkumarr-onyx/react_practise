@@ -64,9 +64,7 @@ const PractiseForm = () => {
       >
         submit
       </button>
-      <p> {responseData && JSON.stringify(responseData.name)}</p>
-      {/* <p>{responseData ? responseData.name : "no data found"}</p>
-      <p>{responseData && responseData.email}</p> */}
+      <p>{JSON.stringify(responseData)}</p>
     </form>
   );
 };
