@@ -6,46 +6,49 @@ const PractiseForm = () => {
     name: "",
     email: "",
   });
-  const [responseData, setResponseData] = useState("");
   const [isFormValid, setFormValid] = useState(false);
-
-  useEffect(() => {
-    setFormValid(formData.name !== "" && formData.email !== "");
-  }, [formData]);
+  const [allUsers, setAllUsers] = useState([]);
 
   function getVal(e) {
     const { name, value } = e.target;
     setForm({ ...formData, [name]: value });
   }
+
+  useEffect(() => {
+    setFormValid(formData.name !== "" && formData.email !== "");
+    fetchAllUsers();
+  }, [formData]);
+
   async function formHandle(e) {
     e.preventDefault();
-    console.log("click");
-    let formDataList = localStorage.getItem("identity");
-
-    // let formDataList = existingData ? JSON.parse(existingData) : [];
-    // formDataList.push(formData);
-    // localStorage.setItem("identity", JSON.stringify(formDataList));
-    // console.log(JSON.stringify(formDataList));
     try {
-      const response = await axios.post(
-        "http://localhost:8000/submit",
-        formData
-      );
-      setResponseData(JSON.stringify(response.data));
+      await axios.post("http://localhost:8000/api/submit", formData);
+      alert("User added Successfully");
     } catch (error) {
       console.error("Error submitting form data:", error);
     }
   }
+  async function fetchAllUsers() {
+    try {
+      const response = await axios.get("http://localhost:8000/api/users");
+      setAllUsers(response.data.users);
+    } catch (error) {
+      console.error(" oops!No users found", error);
+    }
+  }
 
   return (
-    <form className="flex flex-col gap-[10px]" onSubmit={formHandle}>
+    <form
+      className="flex flex-col gap-[10px] lg:w-[200px] max-md:w-[200px] focus:outline-none"
+      onSubmit={formHandle}
+    >
       <input
         type="text"
         name="name"
         placeholder="name"
         value={formData.name}
         onChange={getVal}
-        className="placeholder:pl-1 border-black border-[1px] text-black"
+        className="placeholder:pl-3 border-black border-[1px] text-black focus:outline-none"
       />
       {formData.name && (
         <input
@@ -53,7 +56,7 @@ const PractiseForm = () => {
           name="email"
           value={formData.email}
           onChange={getVal}
-          className="placeholder:pl-1 border-black border-[1px]"
+          className="placeholder:pl-3 border-black border-[1px] focus:outline-none"
           placeholder="E-mail"
         />
       )}
@@ -64,7 +67,24 @@ const PractiseForm = () => {
       >
         submit
       </button>
-      <p>{JSON.stringify(responseData)}</p>
+      {allUsers && (
+        <table className=" border-collapse border border-black sm:w-[200px]">
+          <thead>
+            <tr>
+              <th className="border border-black px-4 py-2">Name</th>
+              <th className="border border-black px-4 py-2">Email</th>
+            </tr>
+          </thead>
+          <tbody>
+            {allUsers.map((value, index) => (
+              <tr key={index}>
+                <td className="border border-black p-3">{value.name}</td>
+                <td className="border border-black">{value.email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </form>
   );
 };
