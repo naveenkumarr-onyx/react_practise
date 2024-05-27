@@ -9,9 +9,6 @@ const PORT = 8000;
 app.use(cors());
 app.use(bodyParser.json());
 connectDb();
-app.get("/", (req, res) => {
-  res.send("Connected");
-});
 
 app.use("/api/", route);
 

@@ -11,7 +11,7 @@ route.post("/submit", async (req, res) => {
     });
     await newUser.save();
     res
-      .status(200)
+      .status(201)
       .json({ message: "Form Submitted Successfully", data: req.body });
   } catch (error) {
     res.status(500).json({
