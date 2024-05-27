@@ -30,4 +30,22 @@ route.get("/users", async (req, res) => {
     });
   }
 });
+route.delete("/delete-user", async (req, res) => {
+  try {
+    const userId = req.body._id;
+    const users = await user.findByIdAndDelete(userId);
+    if (!users) {
+      return res.status(404).json({
+        message: "User Not Found",
+      });
+    }
+    res.status(200).json({
+      message: "User Deleted Succesfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
 export default route;
