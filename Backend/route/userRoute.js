@@ -30,9 +30,9 @@ route.get("/users", async (req, res) => {
     });
   }
 });
-route.delete("/delete-user", async (req, res) => {
+route.delete("/delete-user/:id", async (req, res) => {
   try {
-    const userId = req.body._id;
+    const userId = req.params.id;
     const users = await user.findByIdAndDelete(userId);
     if (!users) {
       return res.status(404).json({

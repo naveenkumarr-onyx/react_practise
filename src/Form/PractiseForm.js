@@ -36,19 +36,19 @@ const PractiseForm = () => {
       console.error(" oops!No users found", error);
     }
   }
-  const handleDelete = (userId) => {
-    // try {
-    //   await axios.delete("http://localhost:8000/api/delete-user", {
-    //     data: {
-    //       _id: userId,
-    //     },
-    //   });
-    //   allUsers.filter((user) => user._id !== userId);
-    //   alert("User Deleted Successfully");
-    // } catch (error) {
-    //   console.error("Error Deleting user:", error);
-    // }
-    console.log(userId);
+  const handleDelete = async (userId) => {
+    try {
+      await axios.delete(`http://localhost:8000/api/delete-user/${userId}`, {
+        data: {
+          _id: userId,
+        },
+      });
+      allUsers.filter((user) => user._id !== userId);
+      alert("User Deleted Successfully");
+    } catch (error) {
+      console.error("Error Deleting user:", error);
+    }
+    console.log("hi");
   };
 
   return (
@@ -81,7 +81,7 @@ const PractiseForm = () => {
       >
         submit
       </button>
-      {allUsers ? (
+      {allUsers.length > 0 ? (
         <table className=" border-collapse border border-black sm:w-[200px]">
           <thead>
             <tr>
@@ -95,10 +95,11 @@ const PractiseForm = () => {
               <tr key={index}>
                 <td className="border border-black p-3">{value.name}</td>
                 <td className="border border-black">{value.email}</td>
-                <td className="flex bg-red-800 hover:bg-red-600 rounded-md text-white justify-center items-center p-[10px] m-[10px] w-[200px]">
-                  <button className="" onClick={(index) => handleDelete(index)}>
-                    Delete
-                  </button>
+                <td
+                  className="flex bg-red-800 hover:bg-red-600 rounded-md text-white justify-center items-center p-[10px] m-[10px] w-[200px]"
+                  onClick={(userId) => handleDelete(userId._id)}
+                >
+                  <button className="">Delete</button>
                 </td>
               </tr>
             ))}
