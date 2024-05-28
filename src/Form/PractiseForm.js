@@ -38,12 +38,8 @@ const PractiseForm = () => {
   }
   const handleDelete = async (userId) => {
     try {
-      await axios.delete(`http://localhost:8000/api/delete-user/${userId}`, {
-        data: {
-          _id: userId,
-        },
-      });
-      allUsers.filter((user) => user._id !== userId);
+      await axios.delete(`http://localhost:8000/api/delete-user/${userId}`);
+      setAllUsers(allUsers.filter((user) => user._id !== userId));
       alert("User Deleted Successfully");
     } catch (error) {
       console.error("Error Deleting user:", error);
@@ -97,7 +93,7 @@ const PractiseForm = () => {
                 <td className="border border-black">{value.email}</td>
                 <td
                   className="flex bg-red-800 hover:bg-red-600 rounded-md text-white justify-center items-center p-[10px] m-[10px] w-[200px]"
-                  onClick={(userId) => handleDelete(userId._id)}
+                  onClick={(index) => handleDelete(index)}
                 >
                   <button className="">Delete</button>
                 </td>
