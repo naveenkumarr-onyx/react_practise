@@ -1,10 +1,11 @@
 import "./App.css";
-import PractiseForm from "./Form/PractiseForm";
+import Ticket, { Filters } from "./Ticket-Raising/Ticket";
 
 function App() {
   return (
-    <div className="h-screen w-screen justify-center flex items-center gap-[30px] flex-row max-sm:flex-col">
-      <PractiseForm />
+    <div className="mt-[20px] flex gap-[30px] justify-around flex-row max-sm:flex-col">
+      <Ticket />
+      <Filters />
     </div>
   );
 }
