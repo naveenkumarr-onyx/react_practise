@@ -14,7 +14,7 @@ app.use("/", (req, res) => {
   res.send("hi");
 });
 
-app.use("/api/", route);
+app.use("/api", route);
 
 app.listen(PORT, () => {
   console.log(`Backend Run Successfully ${PORT}`);
