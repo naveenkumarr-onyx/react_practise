@@ -10,9 +10,9 @@ app.use(cors());
 app.use(bodyParser.json());
 connectDb();
 
-app.use("/", (req, res) => {
-  res.send("hi");
-});
+// app.use("/", (req, res) => {
+//   res.send("hi");
+// });
 
 app.use("/api", route);
 

@@ -1,7 +1,6 @@
 import express from "express";
-import user from "../model/user.js";
 import ticket from "../model/ticket.js";
-import ticketContoller from "../controller/ticketController.js";
+// import ticketContoller from "../controller/ticketController.js";
 const route = express.Router();
 
 // route.post("/submit", async (req, res) => {
@@ -52,5 +51,52 @@ const route = express.Router();
 // });
 
 // Ticket Raising;
-route.post("/ticket", ticketContoller);
+route.post("/ticket", async (req, res) => {
+  const { title, description, priority, createdBy } = req.body;
+  const newTicket = new ticket({
+    title,
+    description,
+    priority,
+    createdBy,
+  });
+  try {
+    await newTicket.save();
+    res.status(200).json({
+      message: "Ticket Created Successfully",
+      data: newTicket,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error,
+    });
+  }
+});
+
+route.get("/get/ticket", async (req, res) => {
+  try {
+    const getTicket = await ticket.find({});
+    res.status(200).json({
+      data: getTicket,
+    });
+    // res.json(getTicket);
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
+
+route.delete("/delete/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    await ticket.findByIdAndDelete(id);
+    res.status(200).json({
+      message: "Ticket Deleted Successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: error.message,
+    });
+  }
+});
 export default route;
