@@ -11,7 +11,10 @@ const Ticket = () => {
   });
   const [tickets, setTickets] = useState([]);
   const [formValidated, setFormValidated] = useState(false);
-
+  const [filters, setFilters] = useState({
+    status: "All",
+    priority: "All",
+  });
   useEffect(() => {
     const fetchTickets = async () => {
       try {
@@ -52,8 +55,6 @@ const Ticket = () => {
         formData
       );
       setTickets([...tickets, response.data.data]);
-
-      // Reset the form data
       setFormData({
         title: "",
         description: "",
@@ -77,13 +78,33 @@ const Ticket = () => {
     }
   };
 
+  const handleInputSearch = (e) => {
+    setFilters({
+      ...filters,
+      [e.target.name]: e.target.value,
+    });
+    console.log(filters);
+  };
+
+  const filterTickets = tickets.filter((ticket) => {
+    const statusTickets =
+      filters.status === "All" ? true : ticket.status === filters.status;
+    const priorityTickets =
+      filters.priority === "All" ? true : ticket.priority === filters.priority;
+
+    return statusTickets && priorityTickets;
+  });
+
   return (
     <div className="flex flex-col gap-[20px] px-1">
       <div>
         <h1 className="text-xl text-[300] font-bold">
           Ticket Raising Platform
         </h1>
-        <form className="flex flex-col px-2 gap-4" onSubmit={handleSubmit}>
+        <form
+          className="flex flex-col px-2 gap-4 w-[400px]"
+          onSubmit={handleSubmit}
+        >
           <div className="flex flex-col gap-1">
             <label htmlFor="title">Title:</label>
             <input
@@ -147,41 +168,53 @@ const Ticket = () => {
           </button>
         </form>
       </div>
-      <Filters />
-      <RaisedTicket data={tickets} onDelete={handleTicketDelete} />
-    </div>
-  );
-};
-
-export const Filters = () => {
-  return (
-    <div className="flex flex-col gap-[30px] px-1">
-      <h1 className="text-xl text-[300] font-bold">FILTERS AND SEARCH</h1>
-      <div className="px-2">
-        <div className="flex flex-col gap-[10px]">
-          <label htmlFor="status">Status</label>
-          <select className="p-2 border border-black focus:outline-none">
-            <option value="All">All</option>
-            <option value="Open">Open</option>
-            <option value="In Progress">In Progress</option>
-            <option value="Resolved">Resolved</option>
-          </select>
+      {/* Filters And Search */}
+      <div className="flex flex-col gap-[30px] px-1 w-[400px]">
+        <h1 className="text-xl text-[300] font-bold">FILTERS AND SEARCH</h1>
+        <div className="px-2">
+          <div className="flex flex-col gap-[10px]">
+            <label htmlFor="status">Status</label>
+            <select
+              className="p-2 border border-black focus:outline-none"
+              name="status"
+              value={filters.status}
+              onChange={handleInputSearch}
+            >
+              <option value="All">All</option>
+              <option value="Open">Open</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Resolved">Resolved</option>
+            </select>
+          </div>
+          <div className="flex flex-col gap-[10px]">
+            <label htmlFor="priority">Priority</label>
+            <select
+              className="p-2 border border-black focus:outline-none"
+              name="priority"
+              value={filters.priority}
+              onChange={handleInputSearch}
+            >
+              <option value="All">All</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+            </select>
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="search">Search</label>
+            <input
+              type="search"
+              className="focus:outline-none border p-1 border-black bg-transparent placeholder:p-1"
+            />
+          </div>
         </div>
-        <div className="flex flex-col gap-[10px]">
-          <label htmlFor="priority">Priority</label>
-          <select className="p-2 border border-black focus:outline-none">
-            <option value="Low">Low</option>
-            <option value="Medium">Medium</option>
-            <option value="High">High</option>
-          </select>
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="search">Search</label>
-          <input
-            type="search"
-            className="focus:outline-none border p-1 border-black bg-transparent placeholder:p-1"
-          />
-        </div>
+      </div>
+      <div>
+        <RaisedTicket
+          data={tickets}
+          onDelete={handleTicketDelete}
+          filterTickets={filterTickets}
+        />
       </div>
     </div>
   );

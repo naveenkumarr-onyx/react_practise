@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 
-const RaisedTicket = ({ data, onDelete }) => {
+const RaisedTicket = ({ data, onDelete, filterTickets }) => {
   if (!Array.isArray(data)) {
     return <div>No tickets available</div>;
   }
@@ -21,16 +21,18 @@ const RaisedTicket = ({ data, onDelete }) => {
     <div>
       <h1 className="text-xl text-[300] font-bold">TICKETS</h1>
       <div className="m-3 flex flex-row gap-3 rounded-sm ">
-        {data ? (
+        {filterTickets ? (
           <>
-            {data.map((ticket, index) => (
+            {filterTickets.map((ticket, index) => (
               <div
                 key={index}
                 className={` max-w-[300px] p-3 flex flex-col gap-2 ${
-                  ticket.priority === "Medium"
-                    ? " bg-yellow-200"
+                  ticket.priority === "Low"
+                    ? "bg-violet-400"
+                    : ticket.priority === "Medium"
+                    ? "bg-yellow-200"
                     : ticket.priority === "High"
-                    ? " bg-red-200"
+                    ? "bg-red-200"
                     : "bg-green-200"
                 }`}
               >
