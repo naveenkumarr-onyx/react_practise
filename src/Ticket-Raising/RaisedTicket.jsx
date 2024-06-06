@@ -1,11 +1,7 @@
 import axios from "axios";
 import React from "react";
 
-const RaisedTicket = ({ data, onDelete, filterTickets }) => {
-  if (!Array.isArray(data)) {
-    return <div>No tickets available</div>;
-  }
-
+const RaisedTicket = ({ onDelete, filterTickets }) => {
   const handleTicketDelete = async (id) => {
     if (window.confirm("Do you really want to Delete?")) {
       try {
@@ -36,6 +32,7 @@ const RaisedTicket = ({ data, onDelete, filterTickets }) => {
                     : "bg-green-200"
                 }`}
               >
+                <h1 className="font-bold">{ticket.title}</h1>
                 <p className="font-semibold">
                   {ticket.description || "No description provided"}
                 </p>
