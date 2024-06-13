@@ -7,23 +7,24 @@ export const Solve = () => {
       for (let i = 0; i < n; i++) {
         let currentSum = arr[i];
         if (currentSum === s) {
-          result.push([arr[i]]);
+          result.push([i, i]);
         }
         for (let j = i + 1; j < n; j++) {
           currentSum += arr[j];
+          if (s === undefined) return -1;
           if (currentSum === s) {
-            result.push(arr.slice(i, j + 1));
+            result.push([i, j]);
           }
         }
       }
       return result;
     };
 
-    const array = [0, 1, 2, 7, 5];
-    const targetSum = 12;
+    const array = [5, 3, 4];
+    const targetSum = 2;
     const result = subArraySum(array, array.length, targetSum);
     console.log(result);
   }, []);
 
-  return <div className="font-bold">Problem -Solving</div>;
+  return <div className="font-bold">Problem-Solving</div>;
 };
