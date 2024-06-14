@@ -24,9 +24,18 @@ export const Solve = () => {
       var currentSum = 0;
       var start = 0;
       for (let i = 0; i < n; i++) {
-        console.log((currentSum = currentSum + arr[i]));
+        currentSum = currentSum + arr[i];
+        while (currentSum > s && start <= i) {
+          currentSum = currentSum - arr[start];
+          start++;
+        }
+        if (currentSum === s) {
+          return [start + 1, i + 1];
+        }
       }
+      return [-1];
     };
+
     const array = [5, 3, 4];
     const targetSum = 2;
     const result = subArraySum(array, array.length, targetSum);
