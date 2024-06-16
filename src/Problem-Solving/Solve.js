@@ -25,6 +25,7 @@ export const Solve = () => {
       var start = 0;
       for (let i = 0; i < n; i++) {
         currentSum = currentSum + arr[i];
+        // console.log((currentSum = currentSum + arr[i]));
         while (currentSum > s && start <= i) {
           currentSum = currentSum - arr[start];
           start++;
@@ -36,10 +37,10 @@ export const Solve = () => {
       return [-1];
     };
 
-    const array = [5, 3, 4];
-    const targetSum = 2;
+    const array = [1, 2, 3, 5, 6, 7, 8];
+    const targetSum = 5;
     const result = subArraySum(array, array.length, targetSum);
-    console.log(result);
+    console.log(`result ${result}`);
   }, []);
 
   return <div className="font-bold">Problem-Solving</div>;
