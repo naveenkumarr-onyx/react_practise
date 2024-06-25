@@ -2,57 +2,66 @@ import React, { useEffect } from "react";
 
 export const Solve = () => {
   useEffect(() => {
-    // const subArraySum = (arr, n, s) => {
-    //   const result = [];
-    //   for (let i = 0; i < n; i++) {
-    //     let currentSum = arr[i];
-    //     if (currentSum === s) {
-    //       result.push([i, i]);
-    //     }
-    //     for (let j = i + 1; j < n; j++) {
-    //       currentSum += arr[j];
-    //       if (s === undefined) return -1;
-    //       if (currentSum === s) {
-    //         result.push([i, j]);
-    //       }
-    //     }
-    //   }
-    //   return result;
-    // };
-    // const subArraySum = (arr, n, s) => {
-    //   var currentSum = 0;
-    //   var start = 0;
-    //   for (let i = 0; i < n; i++) {
-    //     currentSum = currentSum + arr[i];
-    //     // console.log((currentSum = currentSum + arr[i]));
-    //     while (currentSum > s && start <= i) {
-    //       currentSum = currentSum - arr[start];
-    //       start++;
-    //     }
-    //     if (currentSum === s) {
-    //       return [start + 1, i + 1];
-    //     }
-    //   }
-    //   return [-1];
-    // };
-    // const array = [1, 2, 3, 5, 6, 7, 8];
-    // const targetSum = 5;
-    // const result = subArraySum(array, array.length, targetSum);
-    // console.log(`result ${result}`);
+    // Linear Search
+    var arr = [6, 7, 2, 3, 5, 1, 4, 13];
+    var target = 13;
+    // var result = linearSearch(arr, target);
+    // var result1 = binearySearch(arr, target);
+    var result2 = selectionSort(arr);
+    console.log(result2);
+    // if (result !== -1) {
+    //   console.log(`Element be found ${result}`);
+    // } else {
+    //   console.log("Element not be found");
+    // }
+    // if (result1 !== -1) {
+    //   console.log(`Element be found ${result}`);
+    // } else {
+    //   console.log("Element not be found");
+    // }
 
-    function extractNumber(sentence) {
-      var numbers = sentence.match(/\d+/g);
-      var filteredNumbers = numbers
-        ? numbers.filter((num) => !num.includes("9")).map(Number)
-        : [];
-
-      if (filteredNumbers.length === 0) return -1;
-      return Math.max(...filteredNumbers);
+    function linearSearch(arr, target) {
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === target) {
+          return i;
+        }
+      }
+      return -1;
     }
-    const sentence = "Another input 9000";
-    const result = extractNumber(sentence);
-    console.log(result);
-  }, []);
+    function binearySearch(arr, target) {
+      var left = 0;
+      var right = arr.length - 1;
+      while (left <= right) {
+        //L     M       R
+        // var arr = [5, 7, 9, 11, 13];
+        var mid = (left + right) / 2;
+        if (arr[mid] === target) {
+          return mid;
+        } else if (arr[mid] < target) {
+          left = mid + 1;
+        } else {
+          right = mid - 1;
+        }
+      }
+    }
 
+    function selectionSort(arr) {
+      let temporaryValue = 0;
+      let size = arr.length;
+      for (var i = 0; i < size; i++) {
+        let minIndex = -1;
+        minIndex = i;
+        for (var j = i + 1; j < size; j++) {
+          if (arr[minIndex] > arr[j]) {
+            minIndex = j;
+          }
+        }
+        temporaryValue = arr[i];
+        arr[i] = arr[minIndex];
+        arr[minIndex] = temporaryValue;
+      }
+      return arr;
+    }
+  });
   return <div className="font-bold">Problem-Solving</div>;
 };
