@@ -3,7 +3,8 @@ import React, { useEffect } from "react";
 export const Solve = () => {
   useEffect(() => {
     // Linear Search
-    var arr = [6, 7, 2, 3, 5, 1, 4, 13];
+    // var arr = [650, 700, 2000, 3, 5, 11, 4, 13];
+    var arr = [7, 5, 3, 0, 8, 4];
     var target = 13;
     // var result = linearSearch(arr, target);
     // var result1 = binearySearch(arr, target);
@@ -48,7 +49,11 @@ export const Solve = () => {
     function selectionSort(arr) {
       let temporaryValue = 0;
       let size = arr.length;
-      for (var i = 0; i < size; i++) {
+
+      for (let index = 0; index < arr.length; index++) {
+        console.log(arr[index]);
+      }
+      for (var i = 0; i < size - 1; i++) {
         let minIndex = -1;
         minIndex = i;
         for (var j = i + 1; j < size; j++) {
@@ -59,6 +64,9 @@ export const Solve = () => {
         temporaryValue = arr[i];
         arr[i] = arr[minIndex];
         arr[minIndex] = temporaryValue;
+        for (let index = 0; index < arr.length; index++) {
+          console.log(arr[index]);
+        }
       }
       return arr;
     }
