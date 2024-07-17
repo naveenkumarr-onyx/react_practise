@@ -15,6 +15,7 @@ const FormInReact = () => {
     gender: "male",
     subject: initialSubjectState,
   });
+  const [tableData, setTableData] = useState([]);
   function handleInputChange(e) {
     const { name, value } = e.target;
     setFormData({
@@ -34,7 +35,8 @@ const FormInReact = () => {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
+    setTableData([...tableData, formData]);
+    console.log(tableData);
   }
   function handleReset() {
     setFormData({
@@ -46,6 +48,7 @@ const FormInReact = () => {
       subject: initialSubjectState,
     });
   }
+
   return (
     <div className=" flex flex-col gap-3">
       <FormComponent
@@ -114,12 +117,41 @@ const FormInReact = () => {
           onChange={handleSubjectChange}
         />
       </div>
-      <button type="submit" onClick={handleSubmit}>
-        submit
-      </button>
-      <button type="button" onClick={handleReset}>
-        Reset
-      </button>
+      <div>
+        <button type="submit" onClick={handleSubmit}>
+          submit
+        </button>
+        <button type="button" onClick={handleReset}>
+          Reset
+        </button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>last Name</th>
+            <th>email</th>
+            <th>contact</th>
+            <th>Subject</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tableData.map((value, index) => (
+            <tr key={index}>
+              <td>{value.firstName}</td>
+              <td>{value.lastName}</td>
+              <td>{value.email}</td>
+              <td>{value.contact}</td>
+              <td>
+                {Object.entries(value.subject)
+                  .filter(([subject, isSelected]) => isSelected)
+                  .map(([subject]) => subject)
+                  .join(", ")}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
