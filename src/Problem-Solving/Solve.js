@@ -50,7 +50,7 @@ export const Solve = () => {
   //     let size = arr.length;
 
   //     for (let index = 0; index < arr.length; index++) {
-  //       // console.log(arr[index]);
+  // console.log(arr[index]);
   //     }
   //     for (var i = 0; i < size - 1; i++) {
   //       let minIndex = -1;
@@ -161,17 +161,37 @@ export const Solve = () => {
   var s6 = "-+-+";
   // console.log(Neutralisation(s3, s4)); // Call the function and print the
 
-  function easy(x) {
-    var vowels = "aeiou";
-    let count = 0;
-    for (let char of x) {
-      if (vowels.includes(char)) {
-        count++;
-      }
+  // function easy(x) {
+  //   var vowels = "aeiou";
+  //   let count = 0;
+  //   for (let char of x) {
+  //     if (vowels.includes(char)) {
+  //       count++;
+  //     }
+  //   }
+  //   return count;
+  // }
+  // console.log(easy("naveenkumar"));
+  function population(p0, percent, aug, p) {
+    let years = 0;
+    while (p0 < p) {
+      p0 = p0 * (1 + percent / 100) + aug;
+      years++;
     }
-    return count;
+    return years;
   }
-  console.log(easy("naveenkumar"));
+
+  // function descending(num) {
+  //   let c = num;
+  //   let result = 0;
+
+  //   num.filter((a, b) => {
+  //     return (result += a);
+  //   });
+  //   return result;
+  // }
+  // console.log(descending(42145));
+
   return (
     <div className="font-bold">
       {/* {characters.map((character, index) => {
