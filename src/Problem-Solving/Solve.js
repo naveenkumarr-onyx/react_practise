@@ -181,17 +181,16 @@ export const Solve = () => {
     return years;
   }
 
-  // function descending(num) {
-  //   let c = num;
-  //   let result = 0;
-
-  //   num.filter((a, b) => {
-  //     return (result += a);
-  //   });
-  //   return result;
-  // }
-  // console.log(descending(42145));
-
+  function descending(num) {
+    var res = 0;
+    var str = num
+      .toString()
+      .split("")
+      .sort((a, b) => a - b);
+    return (res += parseInt(str.join(""), 10));
+  }
+  const res = 42145;
+  console.log(descending(res));
   return (
     <div className="font-bold">
       {/* {characters.map((character, index) => {
