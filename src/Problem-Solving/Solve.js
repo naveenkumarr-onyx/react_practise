@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 export const Solve = () => {
   // Linear Search
@@ -151,14 +151,14 @@ export const Solve = () => {
     return result;
   }
   //1
-  var s3 = "--++--";
-  var s4 = "++--++";
-  //2
-  var s1 = "-+-+-+";
-  var s2 = "-+-+-+";
-  //3
-  var s5 = "-++-";
-  var s6 = "-+-+";
+  // var s3 = "--++--";
+  // var s4 = "++--++";
+  // //2
+  // var s1 = "-+-+-+";
+  // var s2 = "-+-+-+";
+  // //3
+  // var s5 = "-++-";
+  // var s6 = "-+-+";
   // console.log(Neutralisation(s3, s4)); // Call the function and print the
 
   // function easy(x) {
@@ -181,16 +181,66 @@ export const Solve = () => {
     return years;
   }
 
-  function descending(num) {
-    var res = 0;
-    var str = num
-      .toString()
-      .split("")
-      .sort((a, b) => a - b);
-    return (res += parseInt(str.join(""), 10));
+  // function twoToOne(s1, s2) {
+  //   var a = s1 + s2;
+  //   return [...new Set(a)].sort().join("");
+  // }
+  // var s1 = "xyaabbbccccdefww";
+  // var s2 = "xxxxyyyyabklmopq";
+  // console.log(twoToOne(s1, s2));
+
+  // function findShort(s) {
+  //   return Math.max(...s.split(" ").map((s) => s.length));
+  // }
+  // console.log(findShort("bitcoin take over the world maybe who knows perhaps"));
+
+  // function character(b) {
+  //   return /^[a-zA-Z]+$/.test(b);
+  // }
+  // console.log(character("/DER"));
+
+  // function camelCase() {
+  //   var str = "";
+  //   var res = "";
+  //   var count = 0;
+  //   for (var i = 0; i < str.length; i++) {
+  //     if (
+  //       str[i] === str[i].toUpperCase() &&
+  //       str[i] !== str[i].toLowerCase() &&
+  //       i !== 0
+  //     ) {
+  //       res += " ";
+  //     }
+  //     res += str[i];
+  //   }
+  //   return res;
+  // }
+  // alternate Method
+  function camelCase(string) {
+    return string.replace(/([A-Z])/g, " $1");
   }
-  const res = 42145;
-  console.log(descending(res));
+  console.log(camelCase("camerCaseTests"));
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const fetchingData = async () => {
+    try {
+      setLoading(true);
+      const api = await fetch("https://dummyjson.com/carts", {
+        method: "GET",
+      });
+      const response = await api.json();
+      setData(response.carts);
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  };
+
+  function ApiFetching() {
+    fetchingData();
+  }
   return (
     <div className="font-bold">
       {/* {characters.map((character, index) => {
@@ -218,6 +268,21 @@ export const Solve = () => {
           );
         });
       })} */}
+      {loading ? <p> Data is Fetching....</p> : ""}
+      <button onClick={ApiFetching}>Fetch Api</button>
+      {data?.map((cart, index) => {
+        return (
+          <div key={cart.id}>
+            <h1>{cart.discountedTotal}</h1>
+            <h1>
+              {cart.products.map((val, index) => {
+                return val.title;
+              })}
+            </h1>
+          </div>
+        );
+      })}
+      <h1>hi</h1>
     </div>
   );
 };
