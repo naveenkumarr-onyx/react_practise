@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 
 export const Solve = () => {
   // Linear Search
@@ -216,31 +216,31 @@ export const Solve = () => {
   //   return res;
   // }
   // alternate Method
-  function camelCase(string) {
-    return string.replace(/([A-Z])/g, " $1");
-  }
-  console.log(camelCase("camerCaseTests"));
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  // function camelCase(string) {
+  //   return string.replace(/([A-Z])/g, " $1");
+  // }
+  // console.log(camelCase("camerCaseTests"));
+  // const [data, setData] = useState([]);
+  // const [loading, setLoading] = useState(false);
 
-  const fetchingData = async () => {
-    try {
-      setLoading(true);
-      const api = await fetch("https://dummyjson.com/carts", {
-        method: "GET",
-      });
-      const response = await api.json();
-      setData(response.carts);
-      setLoading(false);
-    } catch (error) {
-      setLoading(false);
-      console.log(error);
-    }
-  };
+  // const fetchingData = async () => {
+  //   try {
+  //     setLoading(true);
+  //     const api = await fetch("https://dummyjson.com/carts", {
+  //       method: "GET",
+  //     });
+  //     const response = await api.json();
+  //     setData(response.carts);
+  //     setLoading(false);
+  //   } catch (error) {
+  //     setLoading(false);
+  //     console.log(error);
+  //   }
+  // };
 
-  function ApiFetching() {
-    fetchingData();
-  }
+  // function ApiFetching() {
+  //   fetchingData();
+  // }
   return (
     <div className="font-bold">
       {/* {characters.map((character, index) => {
@@ -268,7 +268,7 @@ export const Solve = () => {
           );
         });
       })} */}
-      {loading ? <p> Data is Fetching....</p> : ""}
+      {/* {loading ? <p> Data is Fetching....</p> : ""}
       <button onClick={ApiFetching}>Fetch Api</button>
       {data?.map((cart, index) => {
         return (
@@ -282,7 +282,7 @@ export const Solve = () => {
           </div>
         );
       })}
-      <h1>hi</h1>
+      <h1>hi</h1> */}
     </div>
   );
 };
