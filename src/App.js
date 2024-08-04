@@ -1,3 +1,4 @@
+import { greet } from "@naveenonyx/jsinstaller";
 import "./App.css";
 import { ButtonComponent } from "./hooks/context/ButtonComponent";
 import ChangingContextAction from "./hooks/context/ChangingContextAction";
